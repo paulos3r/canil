@@ -12,5 +12,12 @@
 ### npm install express mustache-express dotenv
 ### npm install --save-dev@types/express @types/mustache-express @types/node
 
+## BIBLIOTECA
+### npm install --save-dev copyfiles
+
 # RODAR O PROJETO
 `npm rum start-dev`
+`npm run postinstall`
+# RODAR EM PRODUÇÃO
+`npm start`
+`heroku cli && heroku --version`

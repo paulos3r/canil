@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
+    "start": "node dist/server.js",
+    "postinstall": "tsc && copyfiles -u 1 src/**/*.mustache dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon -e ts,json,mustache src/server.ts"
   },
@@ -19,6 +24,7 @@
   "homepage": "https://github.com/paulos3r/canil#readme",
   "devDependencies": {
     "@types/jasmine": "^4.0.0",
+    "copyfiles": "^2.4.1",
     "jasmine-core": "^4.0.1",
     "karma": "^6.3.17",
     "karma-chrome-launcher": "^3.1.1",
