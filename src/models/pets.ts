@@ -1,3 +1,6 @@
+import {} from './bancoPet';
+
+let constPet;
 type PetType =  'dog'|'cat'|'fish';
 type PetSex = 'Masculino'|'Feminino';
 
@@ -131,7 +134,8 @@ const data: Pet[] = [
     },
 ];
 
-export const pet = {
+
+export const Pet = {
     //pega todos os pets
     getAll: (): Pet[]=>{
         return data;
