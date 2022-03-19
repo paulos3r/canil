@@ -7,6 +7,7 @@
     "node": "16.x"
   },
   "scripts": {
+    "tsc":"tsc",
     "start": "node dist/server.js",
     "postinstall": "tsc && copyfiles -u 1 src/**/*.mustache dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
