@@ -4,36 +4,36 @@ import { createMenuObject } from '../helpers/createMenuObject';
 export const home = (req: Request, res:Response) =>{
     //teste res.send('home no controller');
     res.render('pages/page',{
-        manu: createMenuObject('all'),
+        menu: createMenuObject('all'),
         banner:{
             title:'Todos os animais',
             backgound:'allanimals.jpg'
         }
     });
 }
-export const dogs = (req: Request, res:Response) =>{
+export const dog = (req: Request, res:Response) =>{
     res.render('pages/page', {
-        manu: createMenuObject('dog'),
+        menu: createMenuObject('dog'),
         banner:{
             title:'cachorros',
             backgound:'banner_dog.jpg'
         }
     });
 }
-export const cats = (req: Request, res:Response) =>{
+export const cat = (req: Request, res:Response) =>{
     //res.render('pages/home');
     res.render('pages/page', {
-        manu: createMenuObject('cat'),
+        menu: createMenuObject('cat'),
         banner:{
             title:'Gatos',
             backgound:'banner_cat.jpg'
         }
     });
 }
-export const fishes = (req: Request, res:Response) =>{
+export const fish = (req: Request, res:Response) =>{
     //res.render('pages/home');
     res.render('pages/page', {
-        manu: createMenuObject('fish'),
+        menu: createMenuObject('fish'),
         banner:{
             title:'peixes',
             backgound:'banner_fish.jpg'
