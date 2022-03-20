@@ -4,6 +4,8 @@ form {
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
+    margin-top: 10%;
+    margin-bottom: 17%;
 }
 form div + div {
     margin-top: 1em;
@@ -16,7 +18,7 @@ label {
 input, textarea {
     font: 1em sans-serif;
     width: 300px;
-    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     border: 1px solid #999;
 }
 input:focus, textarea:focus {
