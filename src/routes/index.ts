@@ -15,7 +15,4 @@ router.get('/contact', PageController.contact)
 
 router.get('/search', SearchController.search);
 
-
-
-
 export default router;
