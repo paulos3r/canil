@@ -51,3 +51,9 @@ export const fish = (req: Request, res:Response) =>{
         list
     });
 }
+export const contact = (req:Request, res:Response)=>{
+    let formulario = true;
+    res.render('pages/formPage', {
+        formulario
+    })
+}
