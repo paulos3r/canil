@@ -1,6 +1,15 @@
 import { Request, Response} from 'express';
 import { createMenuObject } from '../helpers/createMenuObject';
-import { Pet} from '../models/pets';
+import { Pet, Pets } from '../models/pets';
+
+export const canil = async (req:Request, res:Response) => {
+    let pets = await Pets.findAll();
+
+    res.render('pages/teste', {
+        pets
+    })
+}
+
 
 export const home = (req: Request, res:Response) =>{
     //teste res.send('home no controller');

@@ -1,17 +1,54 @@
-import {} from './bancoPet';
+import { Model, DataTypes} from 'sequelize';
+import { sequelize } from '../instances/pets'
 
 let constPet;
 type PetType =  'dog'|'cat'|'fish';
 type PetSex = 'Macho'|'Fêmea'|'';
 
-type Pet = {
-    type: PetType,
-    image:string,
-    name:string,
-    color:string,
-    sex: PetSex,
-    localidade:string
-};
+interface PetInterface extends Model{
+    id: number,
+    nome:string,
+    raca:string
+    imagem:string,
+    cor:string,
+    sexo:string,
+    localidade: string,
+    telefone:string
+}
+
+export const Pets = sequelize.define<PetInterface>("Pets", {
+    id: {
+        primaryKey:true,
+        type: DataTypes.INTEGER
+    },
+    nome:{
+        type: DataTypes.STRING
+    },
+    raca:{
+        type: DataTypes.STRING
+    },
+    imagem:{
+        type: DataTypes.STRING
+    },
+    cor:{
+        type: DataTypes.STRING
+    },
+    sexo:{
+        type: DataTypes.STRING
+    },
+    localidade:{
+        type: DataTypes.STRING
+    },
+    telefone:{
+        type: DataTypes.STRING
+    }
+},
+    {
+        tableName: 'pets',
+        timestamps:false
+    }
+)
+
 
 const data: Pet[] = [
     {
@@ -152,6 +189,14 @@ const data: Pet[] = [
     },
 ];
 
+type Pet = {
+    type: PetType,
+    image:string,
+    name:string,
+    color:string,
+    sex: PetSex,
+    localidade:string
+};
 
 export const Pet = {
     //pega todos os pets

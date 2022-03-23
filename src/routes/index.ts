@@ -15,4 +15,6 @@ router.get('/contact', PageController.contact)
 
 router.get('/search', SearchController.search);
 
+
+router.get('/teste', PageController.canil);
 export default router;
