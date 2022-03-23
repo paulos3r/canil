@@ -13,7 +13,8 @@ interface PetInterface extends Model{
     cor:string,
     sexo:string,
     localidade: string,
-    telefone:string
+    telefone:string,
+    tipo:string
 }
 
 export const Pets = sequelize.define<PetInterface>("Pets", {
@@ -40,6 +41,9 @@ export const Pets = sequelize.define<PetInterface>("Pets", {
         type: DataTypes.STRING
     },
     telefone:{
+        type: DataTypes.STRING
+    },
+    tipo:{
         type: DataTypes.STRING
     }
 },
