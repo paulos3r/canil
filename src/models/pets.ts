@@ -57,6 +57,14 @@ export const Pets = sequelize.define<PetInterface>("Pets", {
 const data: Pet[] = [
     {
         type: 'dog',
+        image: 'pinscher.jpg',
+        name: 'Pinscher',
+        color: 'Marrom e Preto',
+        sex: 'Fêmea',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'dog',
         image: 'pastor-alemao.jpg',
         name: 'Pastor-alemão',
         color: 'Amarelo e Preto',
