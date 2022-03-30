@@ -22,3 +22,8 @@ Projeto CANIL feito no curso de noje
 ### RODAR EM PRODUÇÃO
 - `npm start`
 - `heroku cli && heroku --version`
+
+### Fork e Issues
+Para os contribuentes do projeto, fazer Fork e criar uma issues __tarefa__ 
+- criação de uma nova branch com a funcionalidade ou o bug que irá resolver
+- 
