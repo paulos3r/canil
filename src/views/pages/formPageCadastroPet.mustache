@@ -8,41 +8,36 @@
 <h2>Formulario de cadastro</h2>
 
 {{/banner}}
-<div style="text-align: center; ">
+
+<div class="form-group">
     <fieldset>
-        <form action="/404" method="post">
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="usuario_nome" />
+        <form action="/404" method="post" >
+            <div class="form-group">
+                <input class=" form-group form-control espaco-botton" type="text" id="nome" name="usuario_nome" placeholder="Nome do animal *"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control espaco-botton" type="text" id="raca" name="usuario_nome" placeholder="Raça *"/>
             </div>
             <div>
-                <label for="raca">Raça:</label>
-                <input type="text" id="raca" name="usuario_nome" />
+                <input class="form-control espaco-botton" type="text" id="cor" name="usuario_nome" placeholder="Cor *"/>
             </div>
             <div>
-                <label for="cor">Cor:</label>
-                <input type="text" id="cor" name="usuario_nome" />
-            </div>
-            <div>
-                <label for="sexo">Sexo:</label>
-                <select name="sexo">
-                    <option value="" selected></option>
+                <select class="form-control espaco-botton" name="sexo">
+                    <option value="" selected>Selecione o sexo do animal</option>
                     <option value="macho">Macho</option>
                     <option value="femea" >Femêa</option>
                 </select>
             </div>
-            <div>
-                <label for="localidade">Localidade:</label>
-                <input type="text" id="localidade" name="usuario_nome" />
+            <div class="espaco-botton">
+                <input class="form-control" type="text" id="localidade" name="usuario_nome" placeholder="Localidade *"/>
+                <small id="emailHelp" class="form-text text-muted">Exemplo: Goiania-GO</small>
             </div>
-            <div>
-                <label for="telefone">Telefone de contato:</label>
-                <input type="text" id="telefone" name="usuario_nome" />
+            <div class="">
+                <input class="form-control espaco-botton"  type="text" id="telefone" name="usuario_nome" placeholder="Telefone de contato *" />
             </div>
-            <div>
-                <label for="tipo">tipo:</label>
-                <select name="tipo">
-                    <option value="" selected></option>
+            <div class="form-grup espaco-botton">
+                <select class="form-control" name="tipo">
+                    <option value="" selected>Selecione</option>
                     <option value="dog">Cachorro</option>
                     <option value="cat">Gato</option>
                     <option value="fish">Peixe</option>
@@ -50,9 +45,18 @@
                 </select>
             </div>
             <div>
-                <label for="informativo">Area informativo do animal:</label>
-                <textarea id="msg" name="usuario_msg"></textarea>
-            </div>            
+                <textarea class="form-control espaco-botton" id="msg" name="usuario_msg" placeholder="Area informativo do animal: " rows="3"></textarea>
+            </div>   
+            <form>
+                <div class="form-group espaco-botton">
+                  <label for="FormControlFile">Selecione a imagem</label>
+                  <input type="file" class="form-control-file" id="FormControlFile">
+                </div>
+            </form>  
+           
+            <button class="btn btn-success espaco-botton">
+                Enviar
+            </button>       
         </form>
 
     </fieldset>
