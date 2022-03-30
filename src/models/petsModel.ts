@@ -2,7 +2,7 @@ import { Model, DataTypes} from 'sequelize';
 import { sequelize } from '../instances/pets'
 
 let constPet;
-type PetType =  'dog'|'cat'|'fish';
+type PetType =  'dog'|'cat'|'fish'|'bird';
 type PetSex = 'Macho'|'Fêmea'|'';
 
 interface PetInterface extends Model{
@@ -55,6 +55,64 @@ export const Pets = sequelize.define<PetInterface>("Pets", {
 
 
 const data: Pet[] = [
+    //especies liberadas pelo temos sete espécies de aves consideradas domésticas pelo Ibama e Ministério da Agricultura.
+    //Manom, Mandarim, Diamente Gold, Canário, Periquito, Calopsita e Rolinha Diamante
+    {
+        type: 'bird',
+        image: 'manon.jpg',
+        name: 'Manom',
+        color: 'Marrom e Preto',
+        sex: 'Macho',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'mandarim.jpg',
+        name: 'Mandarim',
+        color: 'Marrom e Preto',
+        sex: 'Fêmea',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'diamente-gold.jpg',
+        name: 'Diamente Gold',
+        color: 'Marrom e Preto',
+        sex: 'Macho',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'canario.jpg',
+        name: 'Canário',
+        color: 'Marrom e Preto',
+        sex: 'Fêmea',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'piriquito.jpg',
+        name: 'Periquito',
+        color: 'Marrom e Preto',
+        sex: 'Macho',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'calopsita.jpg',
+        name: 'Calopsita',
+        color: 'Marrom e Preto',
+        sex: 'Macho',
+        localidade: 'Goiânia - GO'
+    },
+    {
+        type: 'bird',
+        image: 'rolinha-diamante.jpg',
+        name: 'Rolinha Diamante',
+        color: 'Marrom e Preto',
+        sex: 'Fêmea',
+        localidade: 'Goiânia - GO'
+    },
     {
         type: 'dog',
         image: 'pinscher.jpg',

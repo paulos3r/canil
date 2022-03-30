@@ -9,12 +9,13 @@ router.get('/', PageController.home);
 router.get('/dog', PageController.dog);
 router.get('/cat', PageController.cat);
 router.get('/fish', PageController.fish);
+router.get('/bird', PageController.bird);
+router.get('/cadastro-pet', PageController.cadastroPet);
 
 //contato com a equipe
 router.get('/contact', PageController.contact)
 
 router.get('/search', SearchController.search);
-
 
 router.get('/teste', PageController.canil);
 export default router;

@@ -1,6 +1,6 @@
 import { Request, Response} from 'express';
 import { createMenuObject } from '../helpers/createMenuObject';
-import { Pet, Pets } from '../models/pets';
+import { Pet, Pets } from '../models/petsModel';
 
 export const canil = async (req:Request, res:Response) => {
     let pets = await Pets.findAll();
@@ -60,9 +60,30 @@ export const fish = (req: Request, res:Response) =>{
         list
     });
 }
+export const bird = (req:Request, res:Response)=>{
+    let list  = Pet.getFromType('bird');
+    res.render('pages/page', {
+        menu: createMenuObject('bird'),
+        banner:{
+            title:'Todos os animais',
+            backgound:'allanimals.jpg'
+        },
+        list
+    })
+}
+export const cadastroPet = (req: Request, res: Response)=>{
+    let cadastroPet = true;
+    res.render('pages/formPageCadastroPet', {
+        cadastroPet,
+        banner:{
+            title:'Cadastro de Pets para doação',
+            backgound:'allanimals.jpg'
+        }
+    })
+}
 export const contact = (req:Request, res:Response)=>{
     let formulario = true;
-    res.render('pages/formPage', {
+    res.render('pages/formPageContato', {
         formulario
     })
 }

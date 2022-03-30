@@ -1,0 +1,61 @@
+{{> partials/head}}
+{{> partials/header}}
+{{> partials/nav}}
+
+{{# banner }}
+
+<section class="banner" style="background-image: url('images/{{ backgound }}')">{{ title }}</section>
+<h2>Formulario de cadastro</h2>
+
+{{/banner}}
+<div style="text-align: center; ">
+    <fieldset>
+        <form action="/404" method="post">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="raca">Raça:</label>
+                <input type="text" id="raca" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="cor">Cor:</label>
+                <input type="text" id="cor" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="sexo">Sexo:</label>
+                <select name="sexo">
+                    <option value="" selected></option>
+                    <option value="macho">Macho</option>
+                    <option value="femea" >Femêa</option>
+                </select>
+            </div>
+            <div>
+                <label for="localidade">Localidade:</label>
+                <input type="text" id="localidade" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="telefone">Telefone de contato:</label>
+                <input type="text" id="telefone" name="usuario_nome" />
+            </div>
+            <div>
+                <label for="tipo">tipo:</label>
+                <select name="tipo">
+                    <option value="" selected></option>
+                    <option value="dog">Cachorro</option>
+                    <option value="cat">Gato</option>
+                    <option value="fish">Peixe</option>
+                    <option value="bird">Ave</option>
+                </select>
+            </div>
+            <div>
+                <label for="informativo">Area informativo do animal:</label>
+                <textarea id="msg" name="usuario_msg"></textarea>
+            </div>            
+        </form>
+
+    </fieldset>
+</div>
+
+{{> partials/footer}}
