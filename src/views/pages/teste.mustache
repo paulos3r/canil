@@ -2,11 +2,9 @@
 {{> partials/header}}
 {{> partials/nav}}
 
-{{#pets}}
-    <ul>
-        <li>{{ nome }}</li>
-    </ul>
-{{/pets}}
-
+<form action="/teste" method="post">
+    <input type="text" name="name" id="name">
+    <button>enviar</button>
+</form>
 
 {{> partials/footer}}

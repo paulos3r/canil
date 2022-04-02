@@ -16,11 +16,34 @@ interface PetInterface extends Model{
     telefone:string,
     tipo:string
 }
-
+interface contatoInterface extends Model{
+    id:number,
+    email:string,
+    nome:string
+}
+export const Contato = sequelize.define<contatoInterface>("contato",{
+    id:{
+        primaryKey:true,
+        type: DataTypes.INTEGER,
+        autoIncrement:true,
+    },
+    email:{
+        type: DataTypes.STRING
+    },
+    nome:{
+        type: DataTypes.STRING
+    }
+},
+    {
+        tableName: 'contato',
+        timestamps: false
+    }
+);
 export const Pets = sequelize.define<PetInterface>("Pets", {
     id: {
         primaryKey:true,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        autoIncrement:true
     },
     nome:{
         type: DataTypes.STRING
