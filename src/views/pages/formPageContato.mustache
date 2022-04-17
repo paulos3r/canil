@@ -1,7 +1,7 @@
 
 {{> partials/head }}
 
-<form action="/contato" method="post">
+<form action="/dadoEnviado1" method="post">
     <div class="form-group">
         <div>
             <!--<label for="nome">Nome:</label>-->
@@ -13,7 +13,7 @@
         </div>
         <div>
             <label for="msg">Mensagem:</label>
-            <textarea class="form-control" id="usuario_msg" name="msg" rows="4"></textarea>
+            <textarea class="form-control" id="usuario_mensagem" name="mensagem" rows="4"></textarea>
         </div>
 
         <div class="btn">
@@ -21,7 +21,7 @@
         </div>
     </div>
 </form>
-        {{! <div class="btn">
+        <div class="btn">
             <a class="form-control btn-secondary" href="/home" >Retornar</a>
         </div>
     
@@ -39,7 +39,7 @@
                 </a>
             </div>
         </div>
-    </div> }}
+    </div>
 
 
 {{> partials/footer }}

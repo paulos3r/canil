@@ -19,7 +19,8 @@ interface PetInterface extends Model{
 interface contatoInterface extends Model{
     id:number,
     email:string,
-    nome:string
+    nome:string,
+    mensagem:string
 }
 export const Contato = sequelize.define<contatoInterface>("contato",{
     id:{
@@ -31,6 +32,9 @@ export const Contato = sequelize.define<contatoInterface>("contato",{
         type: DataTypes.STRING
     },
     nome:{
+        type: DataTypes.STRING
+    },
+    mensagem:{
         type: DataTypes.STRING
     }
 },

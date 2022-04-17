@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 import { createMenuObject } from '../helpers/createMenuObject';
-import { Pet, Pets, Contato } from '../models/petsModel';
+import { Pets, Contato } from '../models/petsModel';
 import { Op } from 'sequelize'
 
 
 export const canil = async (req:Request, res:Response) => {
-    let pets = await Pets.findAll();
-
-    res.render('pages/teste', {
-        pets
+    let list = await Pets.findAll();
+    console.log(list)
+    res.render('pages/page', {
+        list
     })
 }
-export const home = (req: Request, res:Response) =>{
+export const home = async (req: Request, res:Response) =>{
     //teste res.send('home no controller');
-    let list = Pet.getAll();
+    let list = await Pets.findAll();
 
     res.render('pages/page',{
         menu: createMenuObject('all'),
@@ -24,21 +24,30 @@ export const home = (req: Request, res:Response) =>{
         list
     });
 }
-export const dog = (req: Request, res:Response) =>{
-    let list = Pet.getFromType('dog');
 
-    res.render('pages/page', {
+export const dog = async (req: Request, res:Response)=>{
+    let list = await Pets.findAll({
+        where: {
+            tipo:'dog'
+        }
+    });
+    console.log(list);
+    res.render('pages/page',{
         menu: createMenuObject('dog'),
         banner:{
-            title:'cachorros',
-            backgound:'banner_dog.jpg'
+            title: 'cachorres',
+            backgound: 'banner_dog.jpg'
         },
         list
-    });
+    })
 }
-export const cat = (req: Request, res:Response) =>{
+export const cat = async (req: Request, res:Response) =>{
     //res.render('pages/home');
-    let list = Pet.getFromType('cat');
+    let list = await Pets.findAll({
+        where:{
+            tipo:'cat'
+        }
+    });
     res.render('pages/page', {
         menu: createMenuObject('cat'),
         banner:{
@@ -48,9 +57,14 @@ export const cat = (req: Request, res:Response) =>{
         list
     });
 }
-export const fish = (req: Request, res:Response) =>{
+export const fish = async (req: Request, res:Response) =>{
+
     //res.render('pages/home');
-    let list  = Pet.getFromType('fish');
+    let list  = await Pets.findAll({
+        where:{
+            tipo:'fish'
+        }
+    });
     res.render('pages/page', {
         menu: createMenuObject('fish'),
         banner:{
@@ -60,8 +74,12 @@ export const fish = (req: Request, res:Response) =>{
         list
     });
 }
-export const bird = (req:Request, res:Response)=>{
-    let list  = Pet.getFromType('bird');
+export const bird = async (req:Request, res:Response)=>{
+    let list  = await Pets.findAll({
+        where:{
+            tipo: 'bird'
+        }
+    });
     res.render('pages/page', {
         menu: createMenuObject('bird'),
         banner:{
@@ -71,27 +89,62 @@ export const bird = (req:Request, res:Response)=>{
         list
     });
 }
-export const cadastroPet = (req: Request, res: Response)=>{
+export const cadastroPet = async (req: Request, res: Response)=>{
     let cadastroPet = true;
-    res.render('pages/formPageCadastroPet', {
-        cadastroPet,
-        banner:{
-            title:'Cadastro de Pets para doação',
-            backgound:'allanimals.jpg'
+    console.log(req.body.nome_animal)
+    if(req.body.nome_animal){
+        let {nome_animal, raca_animal, imagem_animal, cor_animal, sexo_animal, localidade_animal, 
+            telefone_animal, tipo_animal} = req.body;
+        
+        imagem_animal 
+
+        let created = await Pets.create({
+            nome:nome_animal,raca: raca_animal, 
+            imagem: req.body.imagem_animal ? imagem_animal : imagem_animal = 'viraLata.png', 
+            cor:cor_animal, sexo:sexo_animal, localidade:localidade_animal,telefone:telefone_animal, 
+            tipo:tipo_animal
+        });
+        if(created){
+            console.log('enviado para banco')
+        }else{
+            console.log('Houve algum problema');
+            res.render('pages/404');
+            return;
         }
-    });
+        res.render('pages/formPageCadastroPet', {
+            cadastroPet,
+            banner:{
+                title:'Cadastro de Pets para doação',
+                backgound:'allanimals.jpg'
+            },
+            nome: nome_animal, raça:raca_animal,imagem: imagem_animal,cor: cor_animal,sexo: sexo_animal,
+            localidade: localidade_animal
+        });
+    }else{
+        res.render('pages/formPageCadastroPet',{
+            cadastroPet,
+            banner:{
+                title:'Cadastro de Pets para doação',
+                backgound:'allanimals.jpg'
+            }
+        });
+    }
 }
+
 export const contact = (req:Request, res:Response)=>{
     res.render('pages/formPageContato', {
 
     });
 }
 
-export const contato = async (req:Request, res:Response)=>{
-    let nome:string = req.body.nome;
-    let email:string = req.body.email;
-    let mensagem:string = req.body.mensagem
+export const contato = async (req:Request, res:Response)=>{  
+}
 
+export const listaPageContato = async (req:Request, res:Response)=>{
+    //VARIAVEIS JSON BODY-PARSER
+    let {nome, email, mensagem} = req.body;
+
+    //INSERINDO NO BANCO DE DADOS
     const [contato, created] = await Contato.findOrCreate({
         where:{
             nome,
@@ -100,19 +153,14 @@ export const contato = async (req:Request, res:Response)=>{
         },
         defaults:{
             nome:nome,
-            email:email,
-            mensagem: 'esta mensagem ja existe no banco'
+            email:email
         }
     });
+    //VALIDAÇÃO
     if(created){
-        console.log('Enviado para banco')
+        console.log('Enviado para banco');
     }else{
         console.log('houve algum problema no envio')
-    }
-    // RETORNA O CLIENTE 
-    const contatos = await Contato.findAll();
-    if(contatos){
-        console.log( contatos[0]);
     }
 
     res.render('pages/dadoEnviado1', {
@@ -120,30 +168,4 @@ export const contato = async (req:Request, res:Response)=>{
         email,
         mensagem
     });
-}
-
-export const dadoEnviado = (req:Request, res:Response)=>{
-    let nome: string = req.body.nome;
-    let email: string = req.body.email;
-    //teste
-    console.log(nome, email)
-    //enviando os dados para impressão
-    res.render('pages/dadoEnviado', {
-        nome: nome,
-        email: email
-    });
-}
-
-export const dadoEnviado1 = async (req:Request, res:Response)=>{
-
-    const contatos = await Contato.findAll();
-    if(contatos){
-        console.log( contatos[0]);
-    }
-    res.render('pages/dadoEnviado1', {
-        banner:{
-            name:'Paulo'
-        },
-        contatos
-    })
 }

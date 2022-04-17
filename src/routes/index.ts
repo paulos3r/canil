@@ -14,16 +14,12 @@ router.post('/cadastro-pet', PageController.cadastroPet);
 
 //contato com a equipe
 router.get('/contact', PageController.contact);
-// router.post('/dadoEnviado', (req, res)=>{
-//     res.send(req.body.nome)
-// });
-router.post('/dadoEnviado', PageController.dadoEnviado);
-
-router.get('/dadoEnviado1', PageController.dadoEnviado1);
-// router.post('/dadoEnviado',PageController.dadoEnviado);
 router.post('/contact', PageController.contato);
 
-router.get('/search', SearchController.search);
+router.post('/listaPageContato', PageController.listaPageContato);
+router.get('/listaPageContato', PageController.listaPageContato)
+
+router.post('/search', SearchController.search);
 
 router.get('/teste', PageController.canil);
 

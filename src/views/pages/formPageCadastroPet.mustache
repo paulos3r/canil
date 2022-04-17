@@ -11,32 +11,32 @@
 
 <div class="form-group">
     <fieldset>
-        <form action="/404" method="post" >
+        <form action="/cadastro-pet" method="post" >
             <div class="form-group">
-                <input class=" form-group form-control espaco-botton" type="text" id="nome" name="usuario_nome" placeholder="Nome do animal *"/>
+                <input class=" form-group form-control espaco-botton" type="text" id="nome" name="nome_animal" placeholder="Nome do animal *"/>
             </div>
             <div class="form-group">
-                <input class="form-control espaco-botton" type="text" id="raca" name="usuario_nome" placeholder="Raça *"/>
+                <input class="form-control espaco-botton" type="text" id="raca" name="raca_animal" placeholder="Raça *"/>
             </div>
             <div>
-                <input class="form-control espaco-botton" type="text" id="cor" name="usuario_nome" placeholder="Cor *"/>
+                <input class="form-control espaco-botton" type="text" id="cor" name="cor_animal" placeholder="Cor *"/>
             </div>
             <div>
-                <select class="form-control espaco-botton" name="sexo">
+                <select class="form-control espaco-botton" name="sexo_animal">
                     <option value="" selected>Selecione o sexo do animal</option>
                     <option value="macho">Macho</option>
                     <option value="femea" >Femêa</option>
                 </select>
             </div>
             <div class="espaco-botton">
-                <input class="form-control" type="text" id="localidade" name="usuario_nome" placeholder="Localidade *"/>
+                <input class="form-control" type="text" id="localidade" name="localidade_animal" placeholder="Localidade *"/>
                 <small id="emailHelp" class="form-text text-muted">Exemplo: Goiania-GO</small>
             </div>
             <div class="">
-                <input class="form-control espaco-botton"  type="text" id="telefone" name="usuario_nome" placeholder="Telefone de contato *" />
+                <input class="form-control espaco-botton"  type="text" id="telefone" name="telefone_animal" placeholder="Telefone de contato *" />
             </div>
             <div class="form-grup espaco-botton">
-                <select class="form-control" name="tipo">
+                <select class="form-control" name="tipo_animal">
                     <option value="" selected>Selecione</option>
                     <option value="dog">Cachorro</option>
                     <option value="cat">Gato</option>
@@ -45,18 +45,17 @@
                 </select>
             </div>
             <div>
-                <textarea class="form-control espaco-botton" id="msg" name="usuario_msg" placeholder="Area informativo do animal: " rows="3"></textarea>
-            </div>   
-            <form>
-                <div class="form-group espaco-botton">
-                  <label for="FormControlFile">Selecione a imagem</label>
-                  <input type="file" class="form-control-file" id="FormControlFile">
-                </div>
-            </form>  
-           
-            <button class="btn btn-success espaco-botton">
+                <textarea class="form-control espaco-botton" id="msg" name="mensagem_animal" placeholder="Area informativo do animal: " rows="3"></textarea>
+            </div>
+
+            <div class="form-group espaco-botton">
+              <label for="FormControlFile">Selecione a imagem</label>
+                <input type="file" class="form-control-file" id="FormControlFile">
+            </div>
+            
+            <button class="btn btn-success espaco-botton" type="submit">
                 Enviar
-            </button>       
+            </button> 
         </form>
 
     </fieldset>
